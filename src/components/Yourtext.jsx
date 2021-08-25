@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Yourtext = () => {
+const Yourtext = (props) => {
   const [text, setText] = useState('')
 
   const onTextChange = (e) => {
@@ -17,11 +17,16 @@ const Yourtext = () => {
 
   return (
     <>
-      <div>
-        <button className="btn btn-warning my-3">Reset</button>
+      <div className="container">
+        <button
+          className="btn btn-warning my-2"
+          onClick={(text) => setText('')}
+        >
+          Reset
+        </button>
         <div className="mb-3">
           <textarea
-            className="form-control bg-light  my-3"
+            className={`form-control bg-${props.mode}  my-3`}
             value={text}
             placeholder="Enter text"
             onChange={onTextChange}
@@ -42,7 +47,7 @@ const Yourtext = () => {
           {text.split(' ').length - 1} words and {text.length} characters
         </p>
         <p className="text-muted">
-          {Math.ceil(0.008 * (text.split(' ').length - 1))} minutes
+          {Math.round(0.008 * (text.split(' ').length - 1))}m read time
         </p>
         <h5>Preview</h5>
         <p className="text-capitalise">{text}</p>
