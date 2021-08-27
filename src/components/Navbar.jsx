@@ -4,7 +4,7 @@ import { BsMoon } from 'react-icons/bs'
 const Navbar = (props) => {
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar- ${props.mode} bg-${props.mode}`}
+      className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
@@ -43,7 +43,7 @@ const Navbar = (props) => {
             />
             <label
               className="form-check-label"
-              forhtml="flexSwitchCheckDefault"
+              htmlFor="flexSwitchCheckDefault"
             ></label>
           </div>
         </div>
