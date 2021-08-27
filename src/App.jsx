@@ -13,10 +13,12 @@ function App() {
   const ToggleMode = () => {
     if (mode === 'light') {
       setMode('dark')
+      document.body.style.backgroundColor = '#212529'
       handleAlert('dark mode has been set', 'success')
     } else {
       setMode('light')
       handleAlert('Light mode has been set', 'success')
+      document.body.style.backgroundColor = 'white'
     }
   }
   const handleAlert = (message, type) => {
@@ -26,7 +28,7 @@ function App() {
     })
     setTimeout(() => {
       setAlert(null)
-    }, 3000)
+    }, 2500)
   }
 
   return (

@@ -14,7 +14,7 @@ const Yourtext = (props) => {
   const ToLowerCase = () => {
     let newtext = text.toLowerCase()
     setText(newtext)
-    props.showAlert('converted to lower', 'success')
+    props.showAlert('converted to lowercase', 'success')
   }
 
   return (
