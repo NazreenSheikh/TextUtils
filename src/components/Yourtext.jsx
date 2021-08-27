@@ -9,15 +9,21 @@ const Yourtext = (props) => {
   const ToUpperCase = () => {
     let newtext = text.toUpperCase()
     setText(newtext)
+    props.showAlert('converted to uppercase', 'success')
   }
   const ToLowerCase = () => {
     let newtext = text.toLowerCase()
     setText(newtext)
+    props.showAlert('converted to lower', 'success')
   }
 
   return (
-    <>
-      <div className="container">
+    <div
+      className={`text-${props.mode === 'light' ? 'dark' : 'light'} bg-${
+        props.mode
+      }`}
+    >
+      <div className="container ">
         <button
           className="btn btn-warning my-2"
           onClick={(text) => setText('')}
@@ -26,7 +32,9 @@ const Yourtext = (props) => {
         </button>
         <div className="mb-3">
           <textarea
-            className={`form-control bg-${props.mode}  my-3`}
+            className={`form-control bg-${
+              props.mode === 'light' ? 'light' : 'secondary'
+            }  my-3 text-${props.mode === 'light' ? 'dark' : 'light'}`}
             value={text}
             placeholder="Enter text"
             onChange={onTextChange}
@@ -49,10 +57,14 @@ const Yourtext = (props) => {
         <p className="text-muted">
           {Math.round(0.008 * (text.split(' ').length - 1))}m read time
         </p>
-        <h5>Preview</h5>
-        <p className="text-capitalise">{text}</p>
+        <h5 className="mt-4 ">Preview</h5>
+        <p className="mt-3 ">
+          {text === ''
+            ? 'enter somthing in textbox to preview that here'
+            : text}
+        </p>
       </div>
-    </>
+    </div>
   )
 }
 
