@@ -6,15 +6,24 @@ const Yourtext = (props) => {
   const onTextChange = (e) => {
     setText(e.target.value)
   }
+
   const ToUpperCase = () => {
     let newtext = text.toUpperCase()
     setText(newtext)
-    props.showAlert('converted to uppercase', 'success')
+    props.showAlert('converted to Uppercase', 'success')
   }
+
   const ToLowerCase = () => {
     let newtext = text.toLowerCase()
     setText(newtext)
-    props.showAlert('converted to lowercase', 'success')
+    props.showAlert('converted to Lowercase', 'success')
+  }
+
+  const RemoveSpace = () => {
+    // let newtext = text.replace(/\s+/g, ' ').trim() both works
+    let newtext = text.split(/[ ]+/).join(' ')
+    setText(newtext)
+    props.showAlert('Extra Spaces removed', 'success')
   }
 
   return (
@@ -47,12 +56,15 @@ const Yourtext = (props) => {
           <button className="btn btn-warning mx-4" onClick={ToLowerCase}>
             convert to lowercase
           </button>
+          <button className="btn btn-warning " onClick={RemoveSpace}>
+            remove extra spaces
+          </button>
         </div>
       </div>
       <div className="container">
         <h4>Summary of your Text</h4>
         <p>
-          {text.split(' ').length - 1} words and {text.length} characters
+          {text.split(/[ ]+/).length - 1} words and {text.length} characters
         </p>
         <p className="text-muted">
           {Math.round(0.008 * (text.split(' ').length - 1))}m read time

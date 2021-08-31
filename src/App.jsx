@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { BsMoon } from 'react-icons/bs'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import About from './components/About'
+// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+// import About from './components/About'
 import Navbar from './components/Navbar'
 import Yourtext from './components/Yourtext'
 import Alert from './components/Alert'
@@ -14,7 +13,7 @@ function App() {
     if (mode === 'light') {
       setMode('dark')
       document.body.style.backgroundColor = '#212529'
-      handleAlert('dark mode has been set', 'success')
+      handleAlert('Dark mode has been set', 'success')
     } else {
       setMode('light')
       handleAlert('Light mode has been set', 'success')
@@ -28,22 +27,14 @@ function App() {
     })
     setTimeout(() => {
       setAlert(null)
-    }, 2500)
+    }, 1500)
   }
 
   return (
     <>
-      {' '}
-      <Router>
-        <Navbar about="About" mode={mode} ToggleMode={ToggleMode} />
-        <Alert alert={alert} />
-        <Switch>
-          <Route exact path="/">
-            <Yourtext mode={mode} showAlert={handleAlert} />
-          </Route>
-          <Route exact path="/about" component={About}></Route>
-        </Switch>
-      </Router>
+      <Navbar home="Home" mode={mode} ToggleMode={ToggleMode} />
+      <Alert alert={alert} />
+      <Yourtext mode={mode} showAlert={handleAlert} title="TextUtils" />
     </>
   )
 }
