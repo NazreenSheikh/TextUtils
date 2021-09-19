@@ -72,7 +72,7 @@ const Yourtext = (props) => {
         <h5 className="mt-4 ">Preview</h5>
         <p className="mt-3 ">
           {text === ''
-            ? 'enter somthing in textbox to preview that here'
+            ? 'Enter something in textbox to preview here'
             : text}
         </p>
       </div>
