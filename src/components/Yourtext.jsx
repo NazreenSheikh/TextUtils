@@ -50,14 +50,14 @@ const Yourtext = (props) => {
             id="myBox"
             rows="8"
           ></textarea>
-          <button className="btn btn-warning " onClick={ToUpperCase}>
+          <button className="btn btn-warning mx-2 my-1" onClick={ToUpperCase}>
             convert to UpperCase
           </button>
-          <button className="btn btn-warning mx-4" onClick={ToLowerCase}>
-            convert to lowercase
+          <button className="btn btn-warning mx-2 my-1" onClick={ToLowerCase}>
+            convert to Lowercase
           </button>
-          <button className="btn btn-warning " onClick={RemoveSpace}>
-            remove extra spaces
+          <button className="btn btn-warning mx-2 my-1" onClick={RemoveSpace}>
+            remove extra Spaces
           </button>
         </div>
       </div>
